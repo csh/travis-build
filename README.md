@@ -8,13 +8,13 @@ Automated things for Travis CI.
 #### HTTPS
 
 ```bash
-git submodule add https://github.com/Fireflies/travis-build.git build
+$ git submodule add https://github.com/Fireflies/travis-build.git build
 ```
 
 #### SSH
 
 ```bash
-git submodule add git@github.com:Fireflies/travis-build.git build
+$ git submodule add git@github.com:Fireflies/travis-build.git build
 ```
 
 ### Configuration
