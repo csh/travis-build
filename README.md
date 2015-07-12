@@ -26,6 +26,6 @@ language: java
 jdk: oraclejdk8
 before_script:
 - bundle install --gemfile build/Gemfile
-- ruby build/build-sonatype.rb
+- ruby build/build-settings.rb
 script: ruby build/build.rb
 ```
