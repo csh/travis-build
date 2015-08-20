@@ -5,8 +5,9 @@ end
 
 repository_username = ENV['REPOSITORY_USERNAME'] || 'deployment'
 repository_password = ENV['REPOSITORY_PASSWORD']
+github_token = ENV['GITHUB_TOKEN']
 
-properties = "nexus_username=#{repository_username}\nnexus_password=#{repository_password}"
+properties = "nexus_username=#{repository_username}\nnexus_password=#{repository_password}\ngithub_token=#{github_token}"
 path = File.join(File.expand_path('~'), '.gradle')
 Dir.mkdir(path) unless File.exists?(path)
 path = File.join(path, 'gradle.properties')
