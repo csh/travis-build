@@ -10,7 +10,7 @@ esac
 goals=(clean)
 profiles=()
 
-if [[ "$VERSION" == *-SNAPSHOT ]]
+if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [[ "$VERSION" == *-SNAPSHOT ]]
 then
 	goals+=('deploy')
 	profiles=('deployment')
