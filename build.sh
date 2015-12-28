@@ -7,15 +7,15 @@ case "$VERSION" in
 		exit 1
 esac
 
-goals=(clean)
+goals=()
 profiles=()
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [[ "$VERSION" == *-SNAPSHOT ]]
 then
-	goals+=('deploy')
+	goals=('deploy')
 	profiles=('deployment')
 else
-	goals+=('verify')
+	goals=('verify')
 fi
 
 if [ ${#profiles[@]} == 0 ]; then
