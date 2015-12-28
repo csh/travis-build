@@ -21,4 +21,4 @@ read -r -d '' settings << EOF
 </settings>
 EOF
 
-echo "$settings" >> "$TARGET_FILE"
+echo "$settings" > "$TARGET_FILE"
