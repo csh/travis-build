@@ -12,9 +12,11 @@ read -r -d '' settings << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
   <servers>
-    <id>$REPOSITORY_ID</id>
-    <username>$REPOSITORY_USERNAME</username>
-    <password>$REPOSITORY_PASSWORD</password>
+    <server>
+      <id>$REPOSITORY_ID</id>
+      <username>$REPOSITORY_USERNAME</username>
+      <password>$REPOSITORY_PASSWORD</password>
+    </server>
   </servers>
 </settings>
 EOF
