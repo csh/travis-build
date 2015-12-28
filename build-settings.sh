@@ -1,7 +1,7 @@
-#if [ "$TRAVIS_SECURE_ENV_VARS" == "" ]; then
-#	echo "Could not find repository credentials"
-#	exit 1
-#fi
+if [ "$TRAVIS_SECURE_ENV_VARS" != "true" ]; then
+	echo "Could not find repository credentials"
+	exit 1
+fi
 
 TARGET_DIR="$HOME/.m2"
 TARGET_FILE="$TARGET_DIR/settings.xml"

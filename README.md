@@ -3,18 +3,21 @@ travis-build
 
 Automated things for Travis CI.
 
+BASH script variant. Passwords will not be escaped. Only works with maven, gradle support is 
+not planned for now.
+
 ### Usage
 
 #### HTTPS
 
 ```bash
-$ git submodule add https://github.com/Fireflies/travis-build.git build
+$ git submodule add -b bash https://github.com/Fireflies/travis-build.git build
 ```
 
 #### SSH
 
 ```bash
-$ git submodule add git@github.com:Fireflies/travis-build.git build
+$ git submodule add -b bash git@github.com:Fireflies/travis-build.git build
 ```
 
 ### Configuration
@@ -25,7 +28,6 @@ Once you've added this repository as a submodule you must update your Travis con
 language: java
 jdk: oraclejdk8
 before_script:
-- bundle install --gemfile build/Gemfile
-- ruby build/build-settings.rb
-script: ruby build/build.rb
+- bash build/build-settings.sh
+script: bash build/build.sh
 ```
