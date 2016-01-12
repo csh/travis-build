@@ -1,5 +1,4 @@
-require 'rubygems'
-gem 'builder', '~> 2.0'
+require 'builder'
 
 if ENV['TRAVIS_SECURE_ENV_VARS'] != 'true'
   puts 'Repository password not found, skipping deployment'
