@@ -1,24 +1,24 @@
-require 'nokogiri'
+require 'rubygems'
+require_gem 'builder', '~> 2.0'
 
 if ENV['TRAVIS_SECURE_ENV_VARS'] != 'true'
   puts 'Repository password not found, skipping deployment'
   exit
 end
 
-builder = Nokogiri::XML::Builder.new do |xml|
-  xml.settings {
-    xml.servers {
-      xml.server {
-        xml.id ENV['REPOSITORY_ID'] || 'ossrh'
-        xml.username ENV['REPOSITORY_USERNAME'] || ENV['SONATYPE_USERNAME']
-        xml.password ENV['REPOSITORY_PASSWORD'] || ENV['SONATYPE_PASSWORD']
-      }
+builder = Builder::XmlMarkup.new
+xml = builder.settings { |settings|
+    settings.servers { |servers|
+        servers.server { |server|
+            server.id(ENV['REPOSITORY_ID'])
+            server.username(ENV['REPOSITORY_USERNAME'])
+            server.password(ENV['REPOSITORY_PASSWORD'])
+        }
     }
-  }
-end
+}
 
 path = File.join(File.expand_path('~'), '.m2', 'settings.xml')
 File.open(path, 'w') { |file|
   puts 'Writing maven settings file'
-  file.write builder.to_xml
+  file.write xml
 }
