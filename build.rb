@@ -1,4 +1,4 @@
-version = `mvn help:evaluate -Dexpression=project.version | grep -v '\[`
+version = `mvn help:evaluate -Dexpression=project.version | grep -v \'\\[`
 if version.nil? || version.to_s.strip.length == 0
   puts 'Could not find project version'
   exit 1
