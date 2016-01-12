@@ -1,4 +1,6 @@
-version = `mvn help:evaluate -Dexpression=project.version | grep -v \'\\[`
+version = `mvn help:evaluate -Dexpression=project.version`
+version = version.split("\n").grep(/^[^\[]/)
+version = version[0] || nil
 if version.nil? || version.to_s.strip.length == 0
   puts 'Could not find project version'
   exit 1
@@ -25,3 +27,4 @@ end
 command = 'mvn ' + arguments.join(' ')
 puts '$ ' + command
 exit system(command)
+
